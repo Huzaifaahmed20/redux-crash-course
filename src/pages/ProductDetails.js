@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 export const ProductDetails = () => {
   const { productId } = useParams();
   const [product, setproduct] = useState({});
+
   const [isBusy, setIsBusy] = useState(false);
 
   const fetchProduct = async () => {
@@ -32,6 +33,9 @@ export const ProductDetails = () => {
             <h2>{product.title}</h2>
             <p>{product.description}</p>
             <h4>${product.price}</h4>
+            <p>
+              Rating: {product.rating?.rate} ({product.rating?.count})
+            </p>
           </Col>
         </Row>
       )}
